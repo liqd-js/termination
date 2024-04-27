@@ -4,7 +4,7 @@ const TERMINATE = Symbol('TERMINATE');
 process.on( 'SIGTERM',  () => TerminationSignal[TERMINATE]( 'SIGTERM' ));
 process.on( 'SIGINT',   () => TerminationSignal[TERMINATE]( 'SIGINT' ));
 
-type TerminationHandler = ( signal: 'SIGTERM' | 'SIGINT' | 'MANUAL' ) => Promise<boolean | undefined> | boolean | undefined;
+type TerminationHandler = ( signal: 'SIGTERM' | 'SIGINT' | 'MANUAL' ) => Promise<boolean | undefined | void> | boolean | undefined | void;
 
 export default class TerminationSignal
 {
